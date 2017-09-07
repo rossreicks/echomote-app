@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
-import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { BLE } from '@ionic-native/ble';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +12,7 @@ export class HomePage {
 
   private devices: any = [];
   constructor(public navCtrl: NavController,
-    private bluetooth: BluetoothSerial,
+    private bluetooth: BLE,
     private platform: Platform) {
     platform.ready().then(() => {
       bluetooth.isEnabled().then(function() {
@@ -21,7 +21,7 @@ export class HomePage {
       function() {
           this.isBluetooth = false;
       });
-      bluetooth.list().then(res => this.devices = res);
+      bluetooth.startScan([]).subscribe(device => this.devices.push(device));
     })
   }
 
