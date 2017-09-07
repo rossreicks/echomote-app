@@ -15,9 +15,13 @@ export class HomePage {
     private bluetooth: BluetoothSerial,
     private platform: Platform) {
     platform.ready().then(() => {
-        bluetooth.isEnabled().then(blue => this.isBluetooth = blue);
-      
-        bluetooth.discoverUnpaired().then(res => this.devices = res);
+      bluetooth.isEnabled().then(function() {
+          this.isBluetooth = true;
+      },
+      function() {
+          this.isBluetooth = false;
+      });
+      bluetooth.discoverUnpaired().then(res => this.devices = res);
     })
   }
 
