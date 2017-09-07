@@ -1,5 +1,8 @@
 {
   "name": "echoMote",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "2b0cf233",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
