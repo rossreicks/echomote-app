@@ -16,17 +16,18 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     private bluetooth: BLE,
     private platform: Platform) {
-    platform.ready().then(() => {
-      bluetooth.isEnabled().then(function() {
-          this.isBluetooth = true;
-      },
-      function() {
-          this.isBluetooth = false;
-      });
-      bluetooth.startScan([]).subscribe(device => this.devices.push(device));
+  }
 
-      bluetooth.showBluetoothSettings().then(res => this.settings = res);
-    })
+  ngOnInit() {
+    this.bluetooth.isEnabled().then(function() {
+        this.isBluetooth = true;
+    },
+    function() {
+        this.isBluetooth = false;
+    });
+    this.bluetooth.startScan([]).subscribe(device => this.devices.push(device));
+
+    this.bluetooth.showBluetoothSettings().then(res => this.settings = res);
   }
 
 }
