@@ -8,7 +8,7 @@ import { BLE } from '@ionic-native/ble';
 })
 export class HomePage {
 
-  private isBluetooth: boolean = false;
+  private isBluetooth = '';
   public statusString: string = '';
   public settings;
 
@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.bluetooth.isEnabled().then(() => this.isBluetooth = true,() => this.isBluetooth = false);
+    this.bluetooth.isEnabled().then(() => this.isBluetooth = 'true',() => this.isBluetooth = 'false');
     //this.bluetooth.startScan([]).subscribe(device => this.devices.push(device));
     //this.bluetooth.showBluetoothSettings().then(res => this.settings = res);
   }
