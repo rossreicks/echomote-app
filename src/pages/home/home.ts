@@ -19,15 +19,9 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.bluetooth.isEnabled().then(function() {
-        this.isBluetooth = true;
-    },
-    function() {
-        this.isBluetooth = false;
-    });
-    this.bluetooth.startScan([]).subscribe(device => this.devices.push(device));
-
-    this.bluetooth.showBluetoothSettings().then(res => this.settings = res);
+    this.bluetooth.isEnabled().then(() => this.isBluetooth = true,() => this.isBluetooth = false);
+    //this.bluetooth.startScan([]).subscribe(device => this.devices.push(device));
+    //this.bluetooth.showBluetoothSettings().then(res => this.settings = res);
   }
 
 }
