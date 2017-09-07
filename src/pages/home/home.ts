@@ -8,7 +8,7 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 })
 export class HomePage {
 
-  private isBluetooth: boolean = false;
+  private isBluetooth = {};
 
   private devices: any = [];
   constructor(public navCtrl: NavController,
