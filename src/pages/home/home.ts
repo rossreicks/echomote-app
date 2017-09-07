@@ -9,6 +9,8 @@ import { BLE } from '@ionic-native/ble';
 export class HomePage {
 
   private isBluetooth: boolean = false;
+  public statusString: string = '';
+  public settings;
 
   private devices: any = [];
   constructor(public navCtrl: NavController,
@@ -22,6 +24,8 @@ export class HomePage {
           this.isBluetooth = false;
       });
       bluetooth.startScan([]).subscribe(device => this.devices.push(device));
+
+      bluetooth.showBluetoothSettings().then(res => this.settings = res);
     })
   }
 
