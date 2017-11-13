@@ -18,7 +18,9 @@ export class Service {
     }   
 
     GetPIs() {
-        this.http.get(API_URL + '/pis').map(res => res.json()).subscribe(res => this.devices.next(res));
+        this.http.get(API_URL + '/pis').map(res => res.json()).subscribe(res => {
+            this.devices.next(res);
+        });
     }
 
     GetChannels() {
@@ -26,12 +28,11 @@ export class Service {
     }
 
     AddChannel(piId: string, channelId: number, channelName: string) {
-        return this.http.post(API_URL + 'channel', { 
+        return this.http.post(API_URL + '/channel', { 
             piId: piId, 
             channelId: channelId, 
             channelName: channelName
         }).map(res => {
-            res.json();
             this.GetChannels();
         });
     }
@@ -40,12 +41,10 @@ export class Service {
         this.http.get(API_URL + '/tvs').map(res => res.json()).subscribe(res => this.tvs.next(res));
     }
 
-    ChangeTV(piId: string, tvId: number) {
-        return this.http.put(API_URL + '/pis/tv', {
-            piId: piId,
-            tvId: tvId
-        }).map(res => {
+    UpdateDevice(device: any) {
+        return this.http.put(API_URL + '/pis', device).map(res => {
             res.json();
+            this.GetPIs();
             this.GetTVs();
         });
     }

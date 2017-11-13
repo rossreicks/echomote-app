@@ -9,13 +9,18 @@
           <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
         </button>
       </ion-buttons>
+      <ion-buttons end>
+            <button ion-button (click)="edit()">
+              <span ion-text color="primary">Edit</span>
+            </button>
+        </ion-buttons>
     </ion-toolbar>
   </ion-header>
   
   <ion-content>
     <ion-item class="device-info">
         <ion-icon name="ios-desktop" item-start></ion-icon>
-        <h2>{{device.piID}}</h2>
+        <h2>{{device.FriendlyName}}</h2>
         <p>{{device.location}}</p>
         <p>{{tv.name}}</p>
     </ion-item>
@@ -33,8 +38,8 @@
             No Channels Configured
         </ion-item>
         <ion-item (click)="OpenAddChannelForm()">
-            <ion-icon name="add" item-start></ion-icon>
-            <h2>Add a channel</h2>
+            <ion-icon name="add" item-start color="primary"></ion-icon>
+            <h2 ion-text color="primary">Add a channel</h2>
         </ion-item>
     </ion-list>
   </ion-content>

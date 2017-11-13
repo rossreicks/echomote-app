@@ -13,6 +13,8 @@ import { Service } from '../pages/service';
 import { HttpModule } from '@angular/http';
 import { DevicePage } from '../pages/device/device';
 import { AddChannelPage } from '../pages/add-channel/add-channel';
+import { FormsModule } from '@angular/forms';
+import { EditDetailsPage } from '../pages/edit-details/edit-details';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { AddChannelPage } from '../pages/add-channel/add-channel';
     DiscoveryPage,
     DevicesPage,
     DevicePage,
-    AddChannelPage
+    AddChannelPage,
+    EditDetailsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,7 +37,8 @@ import { AddChannelPage } from '../pages/add-channel/add-channel';
     DiscoveryPage,
     DevicesPage,
     DevicePage,
-    AddChannelPage
+    AddChannelPage,
+    EditDetailsPage
   ],
   providers: [
     StatusBar,

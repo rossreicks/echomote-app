@@ -13,5 +13,17 @@
     </ion-header>
     
     <ion-content>
-
+        <ion-list>
+            <form #form="ngForm">
+                <ion-item>
+                    <ion-label>Channel Name</ion-label>
+                    <ion-input placeholder="ESPN" [(ngModel)]="channelName" name="channelName"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Channel Number</ion-label>
+                    <ion-input type="number" placeholder="55" [(ngModel)]="channelNumber" name="channelNumber"></ion-input>
+                </ion-item>
+                <button ion-button block (click)="AddChannel()">Submit</button>
+            </form>
+        </ion-list>
     </ion-content>

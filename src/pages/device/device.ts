@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 import { Service } from '../service';
 import { AddChannelPage } from '../add-channel/add-channel';
+import { EditDetailsPage } from '../edit-details/edit-details';
 
 @Component({
   selector: 'page-device',
@@ -29,7 +30,15 @@ export class DevicePage {
     modal.present();
   }
 
+  ngOnChanges(changes) {
+      console.log(changes);
+  }
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+
+  edit() {
+    let modal = this.modalCtrl.create(EditDetailsPage, {device: this.device});
+    modal.present();
   }
 }

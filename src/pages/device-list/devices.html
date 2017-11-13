@@ -1,10 +1,17 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Devices</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+      <ion-title>Devices</ion-title>
+      <ion-buttons start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-buttons end>
+        <button ion-button style="font-size: 2.9rem" (click)="AddDevice()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>

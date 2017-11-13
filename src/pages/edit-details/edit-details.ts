@@ -3,22 +3,22 @@ import { NavController, NavParams, ViewController, ModalController } from 'ionic
 import { Service } from '../service';
 
 @Component({
-  selector: 'page-add-channel',
-  templateUrl: 'add-channel.html',
+  selector: 'page-edit-details',
+  templateUrl: 'edit-details.html',
 })
-export class AddChannelPage {
+export class EditDetailsPage {
     device: any;
-    channelName: string;
-    channelNumber: number;
+    tvs: any[] = [];
 
   constructor(private viewCtrl: ViewController, navParams: NavParams, private service: Service) {
       this.device = navParams.get('device');
+      this.service.tvs.subscribe(res => this.tvs = res);
   }
 
-  AddChannel() {
-    this.service.AddChannel(this.device.piID, this.channelNumber, this.channelName.toUpperCase()).subscribe(res => {
-        this.dismiss();
-    });
+  EditDetails() {
+      this.service.UpdateDevice(this.device).subscribe(res => {
+          this.dismiss();
+      })
   }
 
   dismiss() {
