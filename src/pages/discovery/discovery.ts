@@ -38,7 +38,7 @@ export class DiscoveryPage {
       this.content.style.display = 'block';
       this.header.style.display = 'flex';
       for(let child = 0; child < this.content.children.length; child++) {
-        this.content.children.item(child).style.marginTop = "44px";
+        this.content.children.item(child).style.marginTop = "54px";
       }
     }, 4000)
   }

@@ -5,6 +5,11 @@ import { Service } from '../service';
 @Component({
   selector: 'page-add-channel',
   templateUrl: 'add-channel.html',
+  styles: [
+    `input {
+     text-align: right;   
+    }`
+  ]
 })
 export class AddChannelPage {
     device: any;

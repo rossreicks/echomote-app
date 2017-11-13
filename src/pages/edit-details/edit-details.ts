@@ -5,6 +5,11 @@ import { Service } from '../service';
 @Component({
   selector: 'page-edit-details',
   templateUrl: 'edit-details.html',
+  styles: [
+      `input {
+       text-align: right;   
+      }`
+  ]
 })
 export class EditDetailsPage {
     device: any;
